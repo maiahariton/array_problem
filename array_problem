@@ -1,0 +1,29 @@
+Given an array of positive integers, write a function which returns all the unique pairs which add (equal) up to 100.
+
+Example data:
+
+sample_data = [0, 1, 100, 99, 0, 10, 90, 30, 55, 33, 55, 75, 50, 51, 49, 50, 51, 49, 51]
+sample_output = [[1,99], [0,100], [10,90], [51,49], [50,50]]
+
+Best solution:
+var sample_data = [0, 1, 100, 99, 0, 10, 90, 30, 55, 33, 55, 75, 50, 51, 49, 51, 50, 49, 51];
+var pairs = {};
+
+for (var i = 0; i < sample_data.length; i++) {
+  for (var j = i+1; j < sample_data.length; j++) {
+   if ( sample_data[i] + sample_data[j] == 100 ) {
+   pair = [sample_data[i], sample_data[j]].sort();
+   console.log(pair);
+   pairs[pair.toString()] = pair;
+    }
+   }
+}
+
+var uniquePairs = [];
+for (var key in pairs) {
+  uniquePairs.push(pairs[key]);
+}
+
+console.log("Pairs:", Object.keys(pairs))
+
+
